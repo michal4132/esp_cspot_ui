@@ -1,0 +1,66 @@
+<html>
+<head>
+  <title>Player</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="full-screen" content="yes"/>
+  <meta name="screen-orientation" content="landscape"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+</head>
+
+<body>
+
+<div class="menu">
+  <div class="links">
+    <a href="#now" class="active">Now Playing</a><br>
+    <a href="#link1">Link 1</a><br>
+    <a href="#link2">Link 2</a><br>
+    <a href="#settings">Settings</a><br>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="now">
+    <div class="player">
+      <div class="art">
+        <img src="https://via.placeholder.com/500x500" class="cover"></img>
+      </div>
+      <div class="info">
+        <div class="track"></div>
+        <div class="artist"></div>
+      </div>
+      <div class="controls">
+        <div class="buttons">
+          <div class="prev"></div>
+          <div class="play"></div>
+          <div class="next"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings">
+    <div class="settings-table">
+      <div class="device-name">
+        <p>Device name</p>
+        <input type="text" spellcheck="false" value="CSpot">
+      </div>
+      <div class="bitrate">
+        <p>Audio Bitrate</p>
+        <select id="bitrate" name="bitrate">
+          <option value="320">320kbps</option>
+          <option value="160" selected="selected">160kbps</option>
+          <option value="96">96kbps</option>
+        </select>
+      </div>
+      <div class="save">Save</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+@font-face {
+  font-family: 'Sniglet';
+  src: url('Sniglet-Regular.ttf') format('truetype');
+}
+
+body{
+  font-family: 'Sniglet', Fallback, sans-serif;
+  background-color: #1C1C1C;
+  margin: 0;
+}
+
+.menu{
+  float: left;
+  height: calc(100% - 3em); /* page height minus padding top */
+  background-color: #111215;
+  padding-left: 2em;
+  padding-top: 3em;
+  width: 20em;
+}
+.links a{
+  color: #CCCCCC;
+  text-decoration: none;
+  font-size: 2em;
+  display:inline-block;
+  transition: font-size 0.2s, padding-top 0.2s, padding-bottom 0.2s;
+}
+.active{
+  font-size: 3em !important;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.content{
+  color: #CCCCCC;
+  overflow: hidden;
+  height: 100%;
+  font-size: 2em;
+}
+.content > .now{
+  display: none;
+  margin: 0 auto;
+}
+.content > .settings{
+  display: none;
+}
+.player{
+  padding-top: 2em;
+  width: 15em;
+}
+.art{
+  text-align: center;
+}
+.cover{
+  width: 85%;
+  border-radius: 20px;
+}
+.track{
+  padding-left: 0.5em;
+  font-size: 1.6em;
+}
+.artist{
+  padding-left: 1.2em;
+  font-size: 0.8em;
+}
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.controls{
+}
+.play, .pause{
+  height: 1.4em;
+  width: 1.4em;
+  line-height: 1.4em;
+  font-size: 2.4em;
+}
+.play:after{
+  content: "\23F5";
+}
+.pause:after{
+  content: "\23F8";
+}
+.prev:after{
+  content: "<";
+}
+.next:after{
+  content: ">";
+}
+.prev, .next{
+  width: 2.3em;
+  height: 2.3em;
+  font-size: 1.2em;
+  line-height: 2.3em;
+}
+.prev, .play, .pause, .next{
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  color: #000000;
+  cursor: pointer;
+  user-select: none;
+  background-color: #CCCCCC;
+}
+.settings{
+  padding-left: 2em;
+  padding-top: 0.8em;
+}
+.save{
+  margin-top: 2em;
+  text-align: center;
+  background-color: #440544;
+  width: 4em;
+  border-radius: 5%;
+  height: 2em;
+  line-height: 2em;
+  cursor: pointer;
+  user-select: none;
+}
+.save:active{
+  background-color: #541554;
+}
+input[type=text] {
+  width: 20em;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #440544;
+  color: #CCCCCC;
+  height: 2em;
+  font-size: 0.6em;
+}
+input:focus {
+  border-color: #CCCCCC;
+}
+select {
+  width: 20em;
+  border: 0;
+  padding-left: 20px;
+  background-color: #440544;
+  color: #CCCCCC;
+  font-size: 0.6em;
+  height: 2em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
