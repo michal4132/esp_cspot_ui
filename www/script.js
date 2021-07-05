@@ -15,11 +15,33 @@ document.querySelectorAll('.links a').forEach(item => {
   })
 })
 
+document.getElementById("save").addEventListener("click", save_settings);
+
+
+function next(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    update_now_playing();
+  }
+  xhttp.open("PUT", "/api/next");
+  xhttp.send();
+}
+function prev(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    update_now_playing();
+  }
+  xhttp.open("PUT", "/api/prev");
+  xhttp.send();
+}
+
 document.querySelectorAll('.buttons div').forEach(item => {
   item.addEventListener('click', event => {
     var event = item.classList[0];
     if(event == "prev"){
-//      prev();
+      prev();
+    }else if(event == "next"){
+      next();
     }else if(event == "pause"){
       pause();
     }else if(event == "play"){
@@ -27,7 +49,6 @@ document.querySelectorAll('.buttons div').forEach(item => {
     }
   })
 })
-
 
 function hide(){
   document.getElementsByClassName("now")[0].style.display = "none";
@@ -84,21 +105,35 @@ function update_now_playing(){
 }
 
 function get_settings(){
-
-}
-
-function save_settings(){
   var xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
+    var settings = JSON.parse(this.responseText);
+    document.getElementById("bitrate").value = settings["bitrate"];
+    device_name = document.getElementById("device_name").value = settings["device_name"];
   }
   xhttp.open("GET", "/api/settings");
   xhttp.send();
+}
 
+function save_settings(){
+  var bitrate = document.getElementById("bitrate").value;
+  var device_name = document.getElementById("device_name").value;
+
+  var payload = `{"bitrate": "${bitrate}", "device_name": "${device_name}"}`;
+
+  var xhttp = new XMLHttpRequest();
+// TODO: ADD CONFIRMATION POPUP
+//  xhttp.onload = function() {
+//  }
+  xhttp.open("PUT", "/api/settings");
+  xhttp.setRequestHeader("Accept", "application/json");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.send(payload);
 }
 
 function now(){
-  update_now_playing();
   hide();
+  update_now_playing();
   document.getElementsByClassName("now")[0].style.display = "table";
 }
 
@@ -111,6 +146,7 @@ function link2(){
 }
 
 function settings(){
+  get_settings();
   hide();
   document.getElementsByClassName("settings")[0].style.display = "block";
 }
