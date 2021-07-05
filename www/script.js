@@ -1,3 +1,4 @@
+// menu buttons
 document.querySelectorAll('.links a').forEach(item => {
   item.addEventListener('click', event => {
     document.getElementsByClassName("active")[0].classList = [];
@@ -15,8 +16,8 @@ document.querySelectorAll('.links a').forEach(item => {
   })
 })
 
+// save settings button
 document.getElementById("save").addEventListener("click", save_settings);
-
 
 function next(){
   var xhttp = new XMLHttpRequest();
@@ -26,6 +27,7 @@ function next(){
   xhttp.open("PUT", "/api/next");
   xhttp.send();
 }
+
 function prev(){
   var xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
@@ -61,6 +63,7 @@ function statePaused(){
     btn[0].classList = ["play"];
   }
 }
+
 function statePlaying(){
   var btn = document.getElementsByClassName("play");
   if(btn.length == 1){
@@ -76,6 +79,7 @@ function play(){
   xhttp.open("PUT", "/api/play");
   xhttp.send();
 }
+
 function pause(){
   var xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
@@ -83,7 +87,6 @@ function pause(){
   }
   xhttp.open("PUT", "/api/pause");
   xhttp.send();
-
 }
 
 function update_now_playing(){
@@ -146,8 +149,8 @@ function link2(){
 }
 
 function settings(){
-  get_settings();
   hide();
+  get_settings();
   document.getElementsByClassName("settings")[0].style.display = "block";
 }
 
